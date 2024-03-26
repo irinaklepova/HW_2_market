@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'online_shop',
         'USER': 'postgres',
         'HOST': '127.0.0.1',
-        'PORT': 5434,
+        'PORT': 5432,
     }
 }
 
