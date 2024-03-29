@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'online_shop',
         'USER': 'postgres',
         'HOST': '127.0.0.1',
-        'PORT': 5434,
+        'PORT': 5432,
     }
 }
 
@@ -121,7 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIR = [
+    BASE_DIR / 'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

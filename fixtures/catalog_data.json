@@ -1,0 +1,286 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "category_name": "Симметричный",
+      "category_description": "Принт на продукте является симметричным"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "category_name": "Асимметричный",
+      "category_description": "Принт на продукте является асимметричным"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "category_name": "Однотонный",
+      "category_description": "Принт на продукте отсутствует"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "product_name": "Носки короткие Египет",
+      "product_description": "Носки женские, длина до щиколотки, асимметричный принт, египетская тема, размер 36-41",
+      "image": "products/носки_короткие_асимметричные_египет.jpg",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-03-25T19:36:37.195Z",
+      "updated_at": "2024-03-25T19:36:37.195Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Носки короткие корги",
+      "product_description": "Носки женские, длина до щиколотки, асимметричный принт корги, размер 36-41",
+      "image": "products/носки_короткие_асимметричные_корги.jpg",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-03-25T19:37:55.215Z",
+      "updated_at": "2024-03-25T19:37:55.215Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "product_name": "Носки короткие котики",
+      "product_description": "Носки женские, длина до щиколотки, асимметричный принт котики, размер 36-41",
+      "image": "products/носки_короткие_асимметричные_котики.jpg",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-03-25T19:38:34.276Z",
+      "updated_at": "2024-03-25T19:38:34.276Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "product_name": "Носки короткие панды",
+      "product_description": "Носки женские, длина до щиколотки, асимметричный принт, панды, размер 36-41",
+      "image": "products/носки_короткие_асимметричные_панды.jpg",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-03-25T19:39:11.765Z",
+      "updated_at": "2024-03-25T19:39:11.765Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "product_name": "Носки короткие тигр",
+      "product_description": "Носки женские, длина до щиколотки, асимметричный принт, тигры, размер 36-41",
+      "image": "products/носки_короткие_асимметричные_тигр.jpg",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-03-25T19:40:01.511Z",
+      "updated_at": "2024-03-25T19:40:01.511Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "product_name": "Носки короткие авокадо",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, авокадо, размер 36-41",
+      "image": "products/носки_короткие_симметричные_авокадо.jpg",
+      "category": 1,
+      "price": 100,
+      "created_at": "2024-03-25T19:41:39.922Z",
+      "updated_at": "2024-03-25T19:41:39.922Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "product_name": "Носки короткие арбуз",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, арбуз, пальцы, размер 36-41",
+      "image": "products/носки_короткие_симметричные_арбуз_пальчики.jpg",
+      "category": 1,
+      "price": 130,
+      "created_at": "2024-03-25T19:43:15.403Z",
+      "updated_at": "2024-03-25T19:43:15.403Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "product_name": "Носки короткие кружево",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, кружево, размер 36-41",
+      "image": "products/носки_короткие_симметричные_кружево.jpg",
+      "category": 1,
+      "price": 130,
+      "created_at": "2024-03-25T19:44:15.465Z",
+      "updated_at": "2024-03-25T19:44:15.465Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "product_name": "Носки короткие лапки",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, кошачьи лапки, размер 36-41",
+      "image": "products/носки_короткие_симметричные_лапки.jpg",
+      "category": 1,
+      "price": 120,
+      "created_at": "2024-03-25T19:45:02.611Z",
+      "updated_at": "2024-03-25T19:45:02.611Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "product_name": "Носки короткие мишки",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, мишки, пальцы, размер 36-41",
+      "image": "products/носки_короткие_симметричные_мишки_пальчик.jpg",
+      "category": 1,
+      "price": 130,
+      "created_at": "2024-03-25T19:46:06.147Z",
+      "updated_at": "2024-03-25T19:46:06.147Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "product_name": "Носки короткие пицца",
+      "product_description": "Носки женские, длина до щиколотки, симметричный принт, пицца, размер 36-41",
+      "image": "products/носки_короткие_симметричные_пицца.jpg",
+      "category": 1,
+      "price": 100,
+      "created_at": "2024-03-25T19:46:54.296Z",
+      "updated_at": "2024-03-25T19:46:54.296Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "product_name": "Носки средние Египет",
+      "product_description": "Носки женские, средняя длина, асимметричный принт, египетская тема, размер 36-41",
+      "image": "products/носки_средние_асимметричные_египет.jpg",
+      "category": 2,
+      "price": 170,
+      "created_at": "2024-03-25T19:47:57.196Z",
+      "updated_at": "2024-03-25T19:47:57.196Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "product_name": "Носки средние нло",
+      "product_description": "Носки женские, средняя длина, асимметричный принт, НЛО, размер 36-41",
+      "image": "products/носки_средние_асимметричные_нло.jpg",
+      "category": 2,
+      "price": 170,
+      "created_at": "2024-03-25T19:48:52.535Z",
+      "updated_at": "2024-03-25T19:48:52.535Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+      "product_name": "Носки средние Япония",
+      "product_description": "Носки женские, средняя длина, асимметричный принт, японская тема, размер 36-41",
+      "image": "products/носки_средние_асимметричные_япония.jpg",
+      "category": 2,
+      "price": 170,
+      "created_at": "2024-03-25T19:49:42.430Z",
+      "updated_at": "2024-03-25T19:49:42.430Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 15,
+    "fields": {
+      "product_name": "Носки средние ананасы",
+      "product_description": "Носки женские, средняя длина, симметричный принт, ананасы, размер 36-41",
+      "image": "products/носки_средние_симметричные_ананасы.jpg",
+      "category": 1,
+      "price": 160,
+      "created_at": "2024-03-25T19:50:52.490Z",
+      "updated_at": "2024-03-25T19:50:52.490Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 16,
+    "fields": {
+      "product_name": "Носки средние котики",
+      "product_description": "Носки женские, средняя длина, симметричный принт, котики, размер 36-41",
+      "image": "products/носки_средние_симметричные_котики.jpg",
+      "category": 1,
+      "price": 160,
+      "created_at": "2024-03-25T19:51:22.593Z",
+      "updated_at": "2024-03-25T19:51:22.593Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 17,
+    "fields": {
+      "product_name": "Носки средние лисички",
+      "product_description": "Носки женские, средняя длина, симметричный принт, лисички, размер 36-41",
+      "image": "products/носки_средние_симметричные_лисички.jpg",
+      "category": 1,
+      "price": 160,
+      "created_at": "2024-03-25T19:51:53.907Z",
+      "updated_at": "2024-03-25T19:51:53.907Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+      "product_name": "Носки средние мороженое",
+      "product_description": "Носки женские, средняя длина, симметричный принт, мороженое, размер 36-41",
+      "image": "products/носки_средние_симметричные_мороженое.jpg",
+      "category": 1,
+      "price": 160,
+      "created_at": "2024-03-25T19:52:34.854Z",
+      "updated_at": "2024-03-25T19:52:34.854Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 19,
+    "fields": {
+      "product_name": "Носки средние белые",
+      "product_description": "Носки женские, средняя длина, симметричный принт, магнитные, белые, размер 36-41",
+      "image": "products/носки_средние_симметричные_магнитые_белые.jpg",
+      "category": 1,
+      "price": 190,
+      "created_at": "2024-03-25T19:53:33.893Z",
+      "updated_at": "2024-03-25T19:53:33.893Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 20,
+    "fields": {
+      "product_name": "Носки средние черные",
+      "product_description": "Носки женские, средняя длина, симметричный принт, магнитные, черные, размер 36-41",
+      "image": "products/носки_средние_симметричные_магнитые_черные.jpg",
+      "category": 1,
+      "price": 190,
+      "created_at": "2024-03-25T19:54:18.390Z",
+      "updated_at": "2024-03-25T19:54:18.390Z"
+    }
+  }
+]
