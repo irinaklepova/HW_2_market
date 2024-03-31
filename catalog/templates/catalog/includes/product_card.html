@@ -1,0 +1,23 @@
+{% load my_tags %}
+
+<div class="col">
+    <div class="card shadow-sm">
+        <img src="{{product.image | mymedia}}">
+        <div class="card-body">
+            <p class="card-text">{{product.product_name}}<br>
+                Принт: {{product.category}}<br>
+                Характеристики: {{object.product_description}}<br>
+                Стоимость: {{object.price}} руб<br>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-secondary"
+                       href="{% url 'catalog:product_info' product.id %}" role="button">Подробнее</a>
+                    <a class="btn btn-sm btn-outline-secondary"
+                       href="{% url 'catalog:home' %}" role="button">Главная</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

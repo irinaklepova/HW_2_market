@@ -1,21 +1,19 @@
 {% extends 'catalog/base.html' %}
-{% load my_tags%}
+{% load my_tags %}
 
 {% block title %}
 <h1 class="fw-light">{{ title }}</h1>
 {% endblock %}
 
 {% block content %}
-
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {% for product in object_list%}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+
             {% include 'catalog/includes/product_card.html' %}
-            {% endfor %}
+
         </div>
     </div>
 </div>
-
 {% endblock %}
