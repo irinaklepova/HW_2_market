@@ -4,7 +4,7 @@ from catalog.models import Product
 
 
 def index(request):
-    object_list = Product.objects.all()
+    object_list = Product.objects.all()[:3]
     context = {
         'object_list': object_list,
         'title': 'Носки сделают ваш день!',
@@ -12,13 +12,21 @@ def index(request):
     return render(request, 'catalog/home.html', context)
 
 
-def product_info(request, pk):
-    product = Product.objects.get(pk=pk)
+def products_list(request):
     context = {
-        'product': product,
+        'object_list': Product.objects.all(),
+        'title': 'Информация о товарах',
+    }
+    return render(request, 'catalog/products_list.html', context)
+
+
+def product_card(request, pk):
+    object = Product.objects.get(pk=pk)
+    context = {
+        'object': object,
         'title': 'Информация о товаре',
     }
-    return render(request, 'catalog/product_info.html', context)
+    return render(request, 'catalog/product_card.html', context)
 
 
 def contacts(request):
