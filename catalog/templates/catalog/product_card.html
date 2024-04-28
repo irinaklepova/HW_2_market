@@ -1,0 +1,29 @@
+{% load my_tags %}
+
+
+<div class="hstack gap-3">
+    <div class="p-2">
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{object.image | mymedia}}" class="card-img-top" alt="{{object.product_name}}">
+                <div class="card-body">
+                    <h3 class="card-title">{{object.product_name}}</h3>
+                    <p class="card-text"><br>
+                        Принт: {{object.category}}<br>
+                        Характеристики: {{object.product_description|slice:100}}<br>
+                        Стоимость: {{object.price}} руб<br>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-primary"
+                               href="{% url 'catalog:products_list' %}" role="button">К товарам</a>
+                            <a class="btn btn-primary"
+                               href="{% url 'catalog:home' %}" role="button">Главная</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,10 +11,11 @@
     <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {% for product in object_list%}
-            {% include 'catalog/includes/product_card.html' %}
+            {% for object in object_list%}
+            {% include 'catalog/includes/inc_product_info.html' %}
             {% endfor %}
         </div>
+
     </div>
 </div>
 
