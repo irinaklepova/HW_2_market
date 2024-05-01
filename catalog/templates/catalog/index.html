@@ -1,0 +1,26 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags%}
+
+{% block title %}
+<h1 class="fw-light">{{ title }}</h1>
+<p class="lead text-body-secondary">Носки - это не просто предмет одежды, вещь повседневной практической
+                    необходимости, без которой современному человеку невозможно выйти из дома. <br>
+                    Носки - это аксессуар, который может сделать вашу жизнь более комфортной и стильной.<br>
+                    Наши носки - это настроение!</p>
+{% endblock %}
+
+{% block content %}
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for object in object_list%}
+            {% include 'catalog/includes/inc_product_info.html' %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

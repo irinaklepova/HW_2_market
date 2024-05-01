@@ -10,9 +10,10 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a class="btn btn-sm btn-outline-secondary"
-                       href="{% url 'catalog:product_card' object.pk %}" role="button">Подробнее</a>
+                       href="{% url 'catalog:product_detail' object.pk %}" role="button">Подробнее</a>
                     <a class="btn btn-sm btn-outline-secondary"
-                       href="{% url 'catalog:home' %}" role="button">Главная</a>
+                       href="{% url 'catalog:index' %}" role="button">Главная</a>
+
                 </div>
 
             </div>
