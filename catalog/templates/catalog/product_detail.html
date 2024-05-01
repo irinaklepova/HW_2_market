@@ -1,9 +1,14 @@
+{% extends 'catalog/base.html' %}
 {% load my_tags %}
 
+{% block title %}
+<h1 class="fw-light">{{ title }}</h1>
+{% endblock %}
 
-<div class="hstack gap-3">
-    <div class="p-2">
-        <div class="col">
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
             <div class="card shadow-sm">
                 <img src="{{object.image | mymedia}}" class="card-img-top" alt="{{object.product_name}}">
                 <div class="card-body">
@@ -16,9 +21,13 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <a class="btn btn-primary"
-                               href="{% url 'catalog:products_list' %}" role="button">К товарам</a>
-                            <a class="btn btn-primary"
-                               href="{% url 'catalog:home' %}" role="button">Главная</a>
+                               href="{% url 'catalog:product_list' %}" role="button">К товарам</a>
+                            <a class="btn btn-info"
+                               href="{% url 'catalog:index' %}" role="button">Главная</a>
+                            <a class="btn btn-warning"
+                               href="{% url 'catalog:product_update' object.pk %}" role="button">Редактировать</a>
+                            <a class="btn btn-danger"
+                               href="{% url 'catalog:product_delete' object.pk %}" role="button">Удалить</a>
                         </div>
 
                     </div>
@@ -27,3 +36,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
