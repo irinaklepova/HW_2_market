@@ -1,5 +1,8 @@
+from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
-from catalog.models import Product
+
+from catalog.forms import ProductForm, VersionForm
+from catalog.models import Product, Version
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
@@ -21,6 +24,16 @@ class ProductListView(ListView):
         'title': 'Информация о товарах',
     }
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        products = Product.objects.all()
+        for product in products:
+            version = Version.objects.filter(product=product)
+            current_version = version.filter(is_current=True).first()
+            product.current_version = current_version.version_name if current_version else 'Версия неактивна'
+        context_data['object_list'] = products
+        return context_data
+
 
 class ProductDetailView(DetailView):
     model = Product
@@ -31,16 +44,26 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(CreateView):
     model = Product
-    fields = ('product_name', 'product_description', 'image', 'category', 'price')
+    form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
 
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ('product_name', 'product_description', 'image', 'category', 'price')
+    form_class = ProductForm
 
     def get_success_url(self):
         return reverse('catalog:product_detail', args=[self.object.pk])
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
+        if self.request.method == "POST":
+            formset = VersionFormset(self.request.POST, instance=self.object)
+        else:
+            formset = VersionFormset(instance=self.object)
+        context_data['formset'] = formset
+        return context_data
 
 
 class ProductDeleteView(DeleteView):
