@@ -1,0 +1,26 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block title %}
+<h1 class="fw-light">{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="col-12 mb-5">
+                <a href="{% url 'catalog:product_create' %}" class="btn btn-primary">Создать товар</a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for object in object_list %}
+                {% include 'catalog/includes/inc_product_info.html' %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
