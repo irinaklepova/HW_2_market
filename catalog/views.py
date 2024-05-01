@@ -1,39 +1,52 @@
-from django.shortcuts import render
-
+from django.urls import reverse_lazy, reverse
 from catalog.models import Product
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
-def index(request):
-    object_list = Product.objects.all()[:3]
-    context = {
-        'object_list': object_list,
+class IndexView(TemplateView):
+    template_name = 'catalog/index.html'
+    extra_context = {
         'title': 'Носки сделают ваш день!',
     }
-    return render(request, 'catalog/home.html', context)
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = Product.objects.all()[:3]
+        return context_data
 
 
-def products_list(request):
-    context = {
-        'object_list': Product.objects.all(),
+class ProductListView(ListView):
+    model = Product
+    extra_context = {
         'title': 'Информация о товарах',
     }
-    return render(request, 'catalog/products_list.html', context)
 
 
-def product_card(request, pk):
-    object = Product.objects.get(pk=pk)
-    context = {
-        'object': object,
+class ProductDetailView(DetailView):
+    model = Product
+    extra_context = {
         'title': 'Информация о товаре',
     }
-    return render(request, 'catalog/product_card.html', context)
 
 
-def contacts(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        print(f'{name} ({phone}, {email}):{message}')
-    return render(request, 'catalog/contacts.html')
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ('product_name', 'product_description', 'image', 'category', 'price')
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ('product_name', 'product_description', 'image', 'category', 'price')
+
+    def get_success_url(self):
+        return reverse('catalog:product_detail', args=[self.object.pk])
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ContactView(TemplateView):
+    template_name = 'catalog/contacts.html'
