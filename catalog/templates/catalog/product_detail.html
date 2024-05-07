@@ -10,13 +10,18 @@
     <div class="row">
         <div class="col-6">
             <div class="card shadow-sm">
-                <img src="{{object.image | mymedia}}" class="card-img-top" alt="{{object.product_name}}">
+                <img src="{{object.image | mymedia }}" class="card-img-top" alt="{{object.product_name}}">
                 <div class="card-body">
                     <h3 class="card-title">{{object.product_name}}</h3>
                     <p class="card-text"><br>
                         Принт: {{object.category}}<br>
                         Характеристики: {{object.product_description|slice:100}}<br>
                         Стоимость: {{object.price}} руб<br>
+                        Версия: {% if object.is_current %}
+                        Активно
+                        {% else %}
+                        Неактивно
+                        {% endif %}
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
