@@ -68,4 +68,3 @@ def toggle_published(request, pk):
         blog_item.is_published = True
     blog_item.save()
     return redirect(reverse('blog:blog_list'))
-
