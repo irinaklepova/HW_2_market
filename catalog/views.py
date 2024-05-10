@@ -31,7 +31,7 @@ class ProductListView(ListView):
         for product in products:
             version = Version.objects.filter(product=product)
             current_version = version.filter(is_current=True).first()
-            product.current_version = current_version.version_name if current_version else 'Версия неактивна'
+            product.current_version = current_version.name if current_version else 'Версия неактивна'
         context_data['object_list'] = products
         return context_data
 
