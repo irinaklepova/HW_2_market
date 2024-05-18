@@ -1,8 +1,9 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
 from catalog.models import Product, Version
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -43,9 +44,10 @@ class ProductDetailView(DetailView):
     }
 
 
-class ProductCreateView(CreateView, LoginRequiredMixin):
+class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
+    permission_required = 'catalog.add_product'
     success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
@@ -56,7 +58,7 @@ class ProductCreateView(CreateView, LoginRequiredMixin):
         return super().form_valid(form)
 
 
-class ProductUpdateView(UpdateView, LoginRequiredMixin):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
 
@@ -80,10 +82,22 @@ class ProductUpdateView(UpdateView, LoginRequiredMixin):
             formset.save()
         return super().form_valid(form)
 
+    def get_form_class(self):
+        user = self.request.user
+        if user == self.object.creator_product or user.is_superuser:
+            return ProductForm
+        if (user.has_perm('catalog.set_published') and user.has_perm('catalog.change_product_description') and
+                user.has_perm('catalog.change_category')):
+            return ProductModeratorForm
+        raise PermissionDenied
 
-class ProductDeleteView(DeleteView, LoginRequiredMixin):
+
+class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:product_list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 class ContactView(TemplateView):
