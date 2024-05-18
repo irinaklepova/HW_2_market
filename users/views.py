@@ -1,5 +1,6 @@
 import secrets
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect, HttpResponse
@@ -13,7 +14,7 @@ from users.models import User
 from config.settings import EMAIL_HOST_USER
 
 
-class ProfileView(UpdateView):
+class ProfileView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserProfilaForm
     success_url = reverse_lazy('users:profile')
