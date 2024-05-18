@@ -18,7 +18,7 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ('product_name', 'product_description', 'image', 'category', 'price')
+        fields = '__all__'
 
     def clean_product_name(self):
         cleaned_data = self.cleaned_data['product_name']
@@ -26,6 +26,21 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
             if word in self.wrong_words:
                 raise forms.ValidationError("Указано недопустимое слово " + word)
         return cleaned_data
+
+    def clean_product_description(self):
+        cleaned_data = self.cleaned_data['product_description']
+        for word in set(cleaned_data.lower().split()):
+            if word in self.wrong_words:
+                raise forms.ValidationError("Указано недопустимое слово " + word)
+        return cleaned_data
+
+
+class ProductModeratorForm(StyleFormMixin, forms.ModelForm):
+    wrong_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
+
+    class Meta:
+        model = Product
+        fields = ('is_published', 'product_description', 'category')
 
     def clean_product_description(self):
         cleaned_data = self.cleaned_data['product_description']
