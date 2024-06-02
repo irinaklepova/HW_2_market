@@ -4,8 +4,10 @@ from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from catalog.services import get_category_from_cache
 
 
 class IndexView(TemplateView):
@@ -102,3 +104,13 @@ class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ContactView(TemplateView):
     template_name = 'catalog/contacts.html'
+
+
+class CategoryListView(ListView):
+    model = Category
+    extra_context = {
+        'title': 'Информация о категориях товаров',
+    }
+
+    def get_queryset(self):
+        return get_category_from_cache()
