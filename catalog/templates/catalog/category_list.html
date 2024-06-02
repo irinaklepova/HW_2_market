@@ -1,0 +1,36 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block title %}
+<h1 class="fw-light">{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for object in object_list %}
+                <div class="col-3">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ object.category_name }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                                <li><b>Описание: </b>{{ object.category_description }}</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
