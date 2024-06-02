@@ -8,6 +8,7 @@
         <ul class="list-unstyled">
             <li><a href="{% url 'catalog:index' %}" class="text-white">Главная</a></li>
             <li><a href="{% url 'catalog:product_list' %}" class="text-white">Все товары</a></li>
+            <li><a href="{% url 'catalog:category_list' %}" class="text-white">Категории товаров</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
                 <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
